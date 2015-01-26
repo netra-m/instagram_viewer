@@ -58,6 +58,7 @@ public class InstagramPhoto {
 
     public void setNumLikes(int numLikes) {
         this.numLikes = numLikes;
+
     }
 
     @Override
