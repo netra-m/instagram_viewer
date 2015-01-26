@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivPhoto"
+        android:src="@drawable/ic_launcher"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_below="@+id/ivUserPhoto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etPhotoCaption"
+        android:layout_below="@+id/ivPhoto"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/caption_default_text"
+        android:background="@android:color/transparent"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/default_user_name"
+        android:ems="10"
+        android:id="@+id/etUserName"
+        android:background="@android:color/transparent"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/ivUserPhoto"
+        android:layout_toEndOf="@+id/ivUserPhoto"
+        android:typeface="sans"
+        android:textStyle="italic"
+        android:textColor="@color/material_blue_grey_800"/>
+
+    <com.yahoo.netram.instagramviewer.RoundedImageView
+        android:id="@+id/ivUserPhoto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+</RelativeLayout>
