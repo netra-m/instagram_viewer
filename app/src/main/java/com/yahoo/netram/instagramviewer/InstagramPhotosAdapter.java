@@ -1,6 +1,7 @@
 package com.yahoo.netram.instagramviewer;
 
 import android.content.Context;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,13 +32,17 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_photo, parent, false);
         }
 
-        TextView etPhotoCaption = (TextView) convertView.findViewById(R.id.etPhotoCaption);
-        TextView etUserName = (TextView) convertView.findViewById(R.id.etUserName);
+        TextView tvPhotoCaption = (TextView) convertView.findViewById(R.id.tvPhotoCaption);
+        TextView tvUserName = (TextView) convertView.findViewById(R.id.tvUserName);
+        TextView tvNumLikes = (TextView) convertView.findViewById(R.id.tvNumLikes);
+        TextView tvPhotoTime = (TextView) convertView.findViewById(R.id.tvPhotoTime);
         ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
         RoundedImageView ivUserPhoto = (RoundedImageView) convertView.findViewById(R.id.ivUserPhoto);
 
-        etPhotoCaption.setText(instagramPhoto.getCaption());
-        etUserName.setText(instagramPhoto.getUserName());
+        tvPhotoCaption.setText(instagramPhoto.getCaption());
+        tvUserName.setText(instagramPhoto.getUserName());
+        tvNumLikes.setText(Integer.toString(instagramPhoto.getNumLikes()));
+        tvPhotoTime.setText(DateUtils.getRelativeTimeSpanString(instagramPhoto.getCreateTime() * 1000, System.currentTimeMillis(), 0L, DateUtils.FORMAT_ABBREV_ALL));
         ivPhoto.getLayoutParams().height = instagramPhoto.getHeight();
 
         //reset image from recycled view

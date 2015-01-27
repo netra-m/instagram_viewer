@@ -38,6 +38,7 @@ public class PhotosActivity extends ActionBarActivity {
     public static final String PROFILE_PICTURE = "profile_picture";
     public static final String LIKES = "likes";
     public static final String COUNT = "count";
+    public static final String CREATED_TIME = "created_time";
 
     private ArrayList<InstagramPhoto> photos;
     private InstagramPhotosAdapter photosAdapter;
@@ -130,6 +131,8 @@ public class PhotosActivity extends ActionBarActivity {
             instagramPhoto.setUserName(photoJSONObject.getJSONObject(USER).getString(USERNAME));
             instagramPhoto.setNumLikes(photoJSONObject.getJSONObject(LIKES).getInt(COUNT));
             instagramPhoto.setUserImageUrl(photoJSONObject.getJSONObject(USER).getString(PROFILE_PICTURE));
+            instagramPhoto.setCreateTime(Long.valueOf(photoJSONObject.getString(CREATED_TIME)));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

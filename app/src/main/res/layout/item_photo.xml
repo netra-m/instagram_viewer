@@ -1,55 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/hllUserDetails"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+        <com.makeramen.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/ivUserPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingLeft="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher"
+            app:riv_border_color="#333333"
+            app:riv_border_width="2dip"
+            app:riv_corner_radius="20dip"
+            app:riv_mutate_background="true"
+            app:riv_oval="true"
+            app:riv_tile_mode="repeat" />
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            android:text="@string/default_user_name" />
+
+
+        <TextView
+            android:id="@+id/tvPhotoTime"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:gravity="center_vertical"
+            android:paddingLeft="50dp" />
+
+
+    </LinearLayout>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/ivPhoto"
-        android:src="@drawable/ic_launcher"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
-        android:layout_below="@+id/ivUserPhoto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/hllUserDetails"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher" />
 
-    <EditText
+    <TextView
+        android:id="@+id/tvPhotoCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etPhotoCaption"
-        android:layout_below="@+id/ivPhoto"
-        android:maxLines="3"
-        android:ellipsize="end"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="@string/caption_default_text"
-        android:background="@android:color/transparent"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="@string/default_user_name"
-        android:ems="10"
-        android:id="@+id/etUserName"
+        android:layout_below="@+id/ivPhoto"
         android:background="@android:color/transparent"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/ivUserPhoto"
-        android:layout_toEndOf="@+id/ivUserPhoto"
-        android:typeface="sans"
-        android:textStyle="italic"
-        android:textColor="@color/material_blue_grey_800"/>
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:text="@string/caption_default_text" />
 
-    <com.makeramen.RoundedImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/ivUserPhoto"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/ic_launcher"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:riv_corner_radius="30dip"
-        app:riv_border_width="2dip"
-        app:riv_border_color="#333333"/>
+    <LinearLayout
+        android:id="@+id/hllImageDetails"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvPhotoCaption"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivLikes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tvPhotoCaption"
+            android:src="@drawable/ic_facebook_like_thumb" />
+
+        <TextView
+            android:id="@+id/tvNumLikes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="@string/default_num_likes" />
+    </LinearLayout>
+
 
 </RelativeLayout>

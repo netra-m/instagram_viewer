@@ -10,7 +10,8 @@ public class InstagramPhoto {
     private String imageUrl;
     private int height;
     private int numLikes;
-    public String userImageUrl;
+    private String userImageUrl;
+    private long createTime;
 
     public String getUserImageUrl() {
         return userImageUrl;
@@ -61,6 +62,14 @@ public class InstagramPhoto {
 
     }
 
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         return "InstagramPhoto{" +
@@ -70,6 +79,7 @@ public class InstagramPhoto {
                 ", height=" + height +
                 ", numLikes=" + numLikes +
                 ", userImageUrl=" + userImageUrl +
+                ", createTime=" + createTime +
                 '}';
     }
 }
